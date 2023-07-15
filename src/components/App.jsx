@@ -1,5 +1,4 @@
 import { useState } from 'react';
-
 import { Statistics } from './stats/Statistics';
 import { Section } from './section/Section';
 import { FeedbackOptions } from './buttons/FeedbackOptions';
@@ -37,7 +36,7 @@ export const App = () => {
         <FeedbackOptions
           options={['good', 'neutral', 'bad']}
           onLeaveFeedback={handleClick}
-        ></FeedbackOptions>
+        />
       </Section>
 
       <Section title="Statistics">
@@ -48,9 +47,9 @@ export const App = () => {
             bad={bad}
             total={countTotalFeedback()}
             positivePercentage={countPositiveFeedbackPercentage()}
-          ></Statistics>
+          />
         ) : (
-          <Notification message="There is no feedback"></Notification>
+          <Notification message="There is no feedback" />
         )}
       </Section>
     </div>
