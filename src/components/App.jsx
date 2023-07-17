@@ -12,12 +12,22 @@ export const App = () => {
 
   const handleClick = event => {
     const name = event.target.name;
-    if (name === 'good') {
-      return setGood(good + 1);
-    } else if (name === 'neutral') {
-      return setNeutral(neutral + 1);
-    } else if (name === 'bad') {
-      return setBad(bad + 1);
+    switch (name) {
+      case 'good':
+        setGood(good + 1);
+        break;
+
+      case 'neutral':
+        setNeutral(neutral + 1);
+        break;
+
+      case 'bad':
+        setBad(bad + 1);
+        break;
+
+      default:
+        console.log('Something bad');
+        break;
     }
   };
 
@@ -34,7 +44,7 @@ export const App = () => {
     <div className={css.content}>
       <Section title="Please leave feedback">
         <FeedbackOptions
-          options={['good', 'neutral', 'bad']}
+          options={Object.keys({ good, neutral, bad })}
           onLeaveFeedback={handleClick}
         />
       </Section>
